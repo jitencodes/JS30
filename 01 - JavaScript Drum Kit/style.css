@@ -1,51 +1,189 @@
-html {
-  font-size: 10px;
-  background: url('https://i.imgur.com/b9r5sEL.jpg') bottom center;
-  background-size: cover;
-}
-
-body,html {
+* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
-
-.keys {
+html{
+  height: 100%;
+}
+body {
+  /* height: 100vh;
   display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: center; */
+  background-image: linear-gradient( to bottom ,#405166 0%,#656f6f 100%);
+  font-family: 'Fjalla One', sans-serif;
+  
 }
-
-.key {
-  border: .4rem solid black;
-  border-radius: .5rem;
-  margin: 1rem;
-  font-size: 1.5rem;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
-  width: 10rem;
-  text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
-}
-
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
-}
-
-kbd {
+ 
+.container{
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   display: block;
-  font-size: 4rem;
+  position: absolute;
+  max-width: 300px;
+  /* border: 2px solid black; */
+}
+.button{
+  float: left;
+  position: relative;
+  bottom: -65px;
+  transform: translateX(-50%) rotate(-10deg);
+  left: 50%;
+  text-transform: uppercase;
+  color:#e55643;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  cursor: pointer;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
 }
 
-.sound {
-  font-size: 1.2rem;
+h1{
+  color: #fff;
   text-transform: uppercase;
-  letter-spacing: .1rem;
-  color: #ffc600;
+  font-size: 42px;
+  margin: 0;
+  line-height: 47px;
+  letter-spacing: 2px;
 }
+.title{
+   transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  left: 50%;
+  position: relative;
+  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
+
+}
+  .title:nth-child(1){
+    color: #;
+  }
+  .title:nth-child(2){
+    color: #2b9f5e;
+  }
+  .title:nth-child(3){
+    color: #f1c83c;
+  }
+.music_box {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display:hidden;
+  justify-content: space-around;
+  border:10px solid red;
+}
+.box_bumps{
+  display:flex;
+  
+}
+.box_bumps .key {
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  font-size: 16px;
+  font-weight: 300;
+  height:80px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px 50px;
+  margin: 0 auto;
+  background: linear-gradient(140deg, #f0f0f0 1%, #2196F3 99%);
+  box-shadow: 0 6px #1565c0;
+  border-radius: 5px;
+  margin:10px;
+  transition: all 0.1s ease;
+}
+.box_bumps .key:focus {
+  outline: none;
+}
+
+.music_box .image {
+  content: "";
+  height: 300px;
+  width: 300px;
+  position:absolute;
+  top:33%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-image: url("https://arsen-nazaryan.github.io/drum_kit/media/icons/clap.png");
+
+}
+.key:active,
+.playing {
+  transform: scale(0.7);
+  border: 2px solid rgba(206, 181, 135, 0.2) !important;
+  background: linear-gradient(145deg, #cacaca, #2196F3) !important;
+  box-shadow: 20px 20px 60px #2196F3 , -20px -20px 60px #cacaca !important;
+}
+
+
+.key[data-key="65"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/clap.png");
+}
+.key[data-key="83"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/snare.png");
+}
+.key[data-key="68"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/kick.png");
+}
+.key[data-key="70"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/hihat.png");
+}
+.key[data-key="74"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/boom.png");
+}
+.key[data-key="75"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/tom.png");
+}
+.key[data-key="76"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/tink.png");
+}
+.key[data-key="186"]::before {
+  background-image: url("
+    https://arsen-nazaryan.github.io/drum_kit/media/icons/openhat.png");
+}
+
+
+@media only screen and (max-width: 768px) {
+  .box_bumps {
+    flex-direction: column;
+  }
+  .box_bumps strong {
+    display: none;
+  }
+
+  .box_bumps .key::before {
+    top: calc(50% - 30px);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  body {
+    background-size: 20vh auto;
+    background-position: center 3vh;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .box_bumps .key {
+    margin: 10px;
+  }
+  .music_box {
+    justify-content: space-around;
+  }
+}
+ */
